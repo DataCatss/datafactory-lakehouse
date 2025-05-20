@@ -1,5 +1,5 @@
 {
-	"name": "ppl_arquetipo_sql_to_landing",
+	"name": "ppl_arquetipo_sqlserver_to_landing",
 	"properties": {
 		"activities": [
 			{
@@ -61,11 +61,8 @@
 							"userProperties": [],
 							"typeProperties": {
 								"source": {
-									"type": "AzureSqlSource",
-									"sqlReaderQuery": {
-										"value": "@item().query_origen",
-										"type": "Expression"
-									},
+									"type": "SqlServerSource",
+									"sqlReaderQuery": "@item().query_origen",
 									"queryTimeout": "02:00:00",
 									"partitionOption": "None"
 								},
@@ -90,7 +87,7 @@
 							},
 							"inputs": [
 								{
-									"referenceName": "dset_read_azure_sql",
+									"referenceName": "dset_read_sql_server",
 									"type": "DatasetReference"
 								}
 							],
