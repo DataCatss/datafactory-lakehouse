@@ -75,14 +75,7 @@
 										"type": "ParquetWriteSettings"
 									}
 								},
-								"enableStaging": true,
-								"stagingSettings": {
-									"linkedServiceName": {
-										"referenceName": "AzureDataLakeStorage",
-										"type": "LinkedServiceReference"
-									},
-									"path": "metastore/temp"
-								},
+								"enableStaging": false,
 								"translator": {
 									"type": "TabularTranslator",
 									"typeConversion": true,
