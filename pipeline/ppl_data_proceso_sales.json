@@ -28,7 +28,7 @@
 		"parameters": {
 			"prm_proceso": {
 				"type": "string",
-				"defaultValue": "proceso_sales"
+				"defaultValue": "sales"
 			}
 		},
 		"folder": {
