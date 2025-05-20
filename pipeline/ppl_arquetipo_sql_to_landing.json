@@ -90,7 +90,7 @@
 							},
 							"inputs": [
 								{
-									"referenceName": "dset_read_sql",
+									"referenceName": "dset_read_azure_sql",
 									"type": "DatasetReference"
 								}
 							],

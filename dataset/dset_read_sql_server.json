@@ -1,12 +1,12 @@
 {
-	"name": "dset_read_azure_sql",
+	"name": "dset_read_sql_server",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "AzureSqlDatabase",
+			"referenceName": "SqlServer",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
-		"type": "AzureSqlTable",
+		"type": "SqlServerTable",
 		"schema": []
 	}
 }
