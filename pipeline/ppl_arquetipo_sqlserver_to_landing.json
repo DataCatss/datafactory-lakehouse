@@ -62,7 +62,10 @@
 							"typeProperties": {
 								"source": {
 									"type": "SqlServerSource",
-									"sqlReaderQuery": "@item().query_origen",
+									"sqlReaderQuery": {
+										"value": "@item().query_origen",
+										"type": "Expression"
+									},
 									"queryTimeout": "02:00:00",
 									"partitionOption": "None"
 								},
@@ -107,6 +110,46 @@
 									}
 								}
 							]
+						},
+						{
+							"name": "ntb_arquetipo_landing_to_bronze",
+							"type": "DatabricksNotebook",
+							"dependsOn": [
+								{
+									"activity": "Copy data SQL to Landing",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"notebookPath": {
+									"value": "@pipeline().globalParameters.prm_global_path_arquetipo_lading_bronze",
+									"type": "Expression"
+								},
+								"baseParameters": {
+									"path_landing": {
+										"value": "@concat(\n    '/landing/',\n    item().path_landing,\n    '/',\n    formatDateTime(utcNow(),'yyyy-MM-dd'),\n    '/',\n    formatDateTime(utcNow(),'HH')\n)",
+										"type": "Expression"
+									},
+									"tabla": {
+										"value": "@item().tabla_bronze",
+										"type": "Expression"
+									}
+								}
+							},
+							"linkedServiceName": {
+								"referenceName": "AzureDatabricks",
+								"type": "LinkedServiceReference"
+							}
 						}
 					]
 				}
