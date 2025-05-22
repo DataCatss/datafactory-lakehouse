@@ -131,10 +131,7 @@
 							},
 							"userProperties": [],
 							"typeProperties": {
-								"notebookPath": {
-									"value": "@pipeline().globalParameters.prm_global_path_arquetipo_lading_bronze",
-									"type": "Expression"
-								},
+								"notebookPath": "/Users/demokmpp@outlook.com/databricks-lakehouse/DML/lakehouse_demo/arquetipos/ntb_arq_landing_to_bronze",
 								"baseParameters": {
 									"path_landing": {
 										"value": "@concat(\n    '/landing/',\n    item().path_landing,\n    '/',\n    formatDateTime(utcNow(),'yyyy-MM-dd'),\n    '/',\n    formatDateTime(utcNow(),'HH')\n)",
