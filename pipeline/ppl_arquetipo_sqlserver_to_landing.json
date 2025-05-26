@@ -50,7 +50,14 @@
 						{
 							"name": "Copy data SQL to Landing",
 							"type": "Copy",
-							"dependsOn": [],
+							"dependsOn": [
+								{
+									"activity": "Delete parquet",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
 							"policy": {
 								"timeout": "0.12:00:00",
 								"retry": 0,
@@ -150,6 +157,35 @@
 							"linkedServiceName": {
 								"referenceName": "AzureDatabricks",
 								"type": "LinkedServiceReference"
+							}
+						},
+						{
+							"name": "Delete parquet",
+							"type": "Delete",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"dataset": {
+									"referenceName": "dset_read_parquet",
+									"type": "DatasetReference",
+									"parameters": {
+										"prm_container": "@pipeline().globalParameters.prm_global_container",
+										"prm_directory": "@concat(     '/landing/',     item().path_landing,     '/',     formatDateTime(utcNow(),'yyyy-MM-dd'),     '/',     formatDateTime(utcNow(),'HH') )"
+									}
+								},
+								"enableLogging": false,
+								"storeSettings": {
+									"type": "AzureBlobFSReadSettings",
+									"recursive": true,
+									"enablePartitionDiscovery": false
+								}
 							}
 						}
 					]
