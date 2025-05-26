@@ -18,7 +18,7 @@
 					"source": {
 						"type": "AzureDatabricksDeltaLakeSource",
 						"query": {
-							"value": "@concat(\n    'SELECT * FROM lakehouse.auditoria.parametros WHERE proceso = ',\n    '''',\n    pipeline().parameters.prm_adb_proceso,\n    ''''\n)",
+							"value": "@concat(\n    'SELECT * FROM lakehouse.auditoria.parameters WHERE process = ',\n    '''',\n    pipeline().parameters.prm_adb_proceso,\n    ''''\n)",
 							"type": "Expression"
 						}
 					},
@@ -153,7 +153,7 @@
 			}
 		],
 		"parameters": {
-			"prm_adb_proceso": {
+			"prm_adb_process": {
 				"type": "string"
 			}
 		},
