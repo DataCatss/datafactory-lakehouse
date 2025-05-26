@@ -15,7 +15,13 @@
 						"referenceName": "ppl_arquetipo_sqlserver_to_landing",
 						"type": "PipelineReference"
 					},
-					"waitOnCompletion": true
+					"waitOnCompletion": true,
+					"parameters": {
+						"prm_adb_process": {
+							"value": "@pipeline().parameters.prm_process",
+							"type": "Expression"
+						}
+					}
 				}
 			}
 		],
