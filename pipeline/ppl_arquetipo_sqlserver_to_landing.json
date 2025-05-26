@@ -140,7 +140,11 @@
 									"tabla": {
 										"value": "@item().table_bronze",
 										"type": "Expression"
-									}
+									},
+									"JobId": "{{job.id}}",
+									"JobRunId": "{{job.run_id}}",
+									"TaskRunId": "{{task.run_id}}",
+									"StartTime": "{{job.start_time.iso_datetime}}"
 								}
 							},
 							"linkedServiceName": {
