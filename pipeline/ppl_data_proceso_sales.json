@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "sql_to_landing",
+				"name": "proceso_sales",
 				"type": "ExecutePipeline",
 				"dependsOn": [],
 				"policy": {
