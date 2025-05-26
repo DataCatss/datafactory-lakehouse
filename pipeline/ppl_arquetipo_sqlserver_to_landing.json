@@ -144,7 +144,7 @@
 										"value": "@concat(\n    '/landing/',\n    item().path_landing,\n    '/',\n    formatDateTime(utcNow(),'yyyy-MM-dd'),\n    '/',\n    formatDateTime(utcNow(),'HH')\n)",
 										"type": "Expression"
 									},
-									"tabla_name": {
+									"table_name": {
 										"value": "@item().table_bronze",
 										"type": "Expression"
 									},
