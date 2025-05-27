@@ -18,7 +18,7 @@
 					"source": {
 						"type": "AzureDatabricksDeltaLakeSource",
 						"query": {
-							"value": "@concat(\n    'SELECT * FROM lakehouse.auditoria.parameters WHERE process = ',\n    '''',\n    pipeline().parameters.prm_adb_process,\n    ''''\n)",
+							"value": "@concat(\n    'SELECT * FROM ',\n    pipeline().globalParameters.prm_global_table_auditoria,\n    ' WHERE process = ',\n    '''',\n    pipeline().parameters.prm_adb_process,\n    ''''\n)",
 							"type": "Expression"
 						}
 					},
